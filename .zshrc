@@ -20,7 +20,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # source your files (CHANGE THIS TO YOUR LIKING)
-source /usr/share/cachyos-zsh-config/cachyos-config.zsh
+# source /usr/share/cachyos-zsh-config/cachyos-config.zsh
 source ~/.secrets
 source ~/.rocm_setup
 export PATH="/opt/rocm/bin:$PATH"
