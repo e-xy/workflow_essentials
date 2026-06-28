@@ -96,7 +96,7 @@ alias lssf="ls | xargs du -sh | rg"
 alias rlss="du -ah . | sort -hr | head -n 10"
 
 # my dumbass "gush" github script (I'm lazy)
-alias gush="~/.config/help_scripts/gush.sh"
+alias gush="~/workflow_essentials/dumb_scripts/gush.sh"
 
 # Directory navigation shortcuts
 alias ..='cd ..'
