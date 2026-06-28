@@ -22,6 +22,8 @@ fi
 # source your files (CHANGE THIS TO YOUR LIKING)
 source /usr/share/cachyos-zsh-config/cachyos-config.zsh
 source ~/.secrets
+source ~/.rocm_setup
+export PATH="/opt/rocm/bin:$PATH"
 
 # Helpful aliases
 alias c='clear' # clear terminal
@@ -80,6 +82,13 @@ cpplr() {
   find . \( -name "*.o" -o -name "a.out" \) -type f -delete
 }
 
+# shit to help you move stuff
+fmv() {
+  local dest
+  dest=$(find . -type d | fzf --prompt="Destination: ") || return
+  fd --type f | fzf -m --print0 | xargs -0 -I{} mv {} "$dest"
+}
+
 alias plz="sudo"
 alias fucking="sudo"
 alias lss="ls | xargs du -sh"
@@ -110,3 +119,13 @@ eval "$(zoxide init zsh)"
 export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init --path)"
 eval "$(pyenv virtualenv-init -)"
+
+# endustries neovim development
+alias nvd='NVIM_APPNAME=nvim-endustries nvim'
+
+# docker & asic development
+export DOCKER_TAG=2025.07
+export DESIGNS=~/asic/
+
+# flatpak
+export XDG_DATA_DIRS=$XDG_DATA_DIRS:/var/lib/flatpak/exports/share:/home/$USER/.local/share/flatpak/exports/share
